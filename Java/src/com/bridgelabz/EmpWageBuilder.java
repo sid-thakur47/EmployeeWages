@@ -1,6 +1,6 @@
 package com.bridgelabz;
 
-public class EmpWageBuilder11 {
+public class EmpWageBuilder {
     public static final int IS_FULL_TIME = 1;
     public static final int IS_PART_TIME = 2;
     public static final int MAX_HR_IN_MONTH = 100;
@@ -22,7 +22,7 @@ public class EmpWageBuilder11 {
         }
         return empHrs;
     }
-    public EmpWageBuilder11() {
+    public EmpWageBuilder() {
         int totalEmpHour = 0;
         int totalEmpWage = 0;
         int totalWorkingDays = 0;
@@ -41,6 +41,6 @@ public class EmpWageBuilder11 {
         System.out.println("Total Employee Hours is:" + totalEmpHour);
     }
     public static void main(String[] args) {
-        EmpWageBuilder ewb = new EmpWageBuilder();
+        new EmpWageBuilder();
     }
 }
