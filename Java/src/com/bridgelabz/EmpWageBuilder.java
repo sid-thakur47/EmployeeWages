@@ -22,7 +22,7 @@ public class EmpWageBuilder {
             default:
                 empHrs = 0;
         }
-        return empHrs;
+        return empHrs; 
     }
 
     public EmpWageBuilder(String company, int empRatePerHour, int numOfWorkingDays, int maxHourInMonth) {
