@@ -20,12 +20,7 @@ public class EmpWageBuilder {
         return empHrs;
     }
 
-    public EmpWageBuilder() {
-        computeEmployeeWage("Birla", 50, 20, 100);
-        computeEmployeeWage("Tata", 60, 40, 200);
-    }
-
-    public void computeEmployeeWage(String company, int empRatePerHour, int numOfWorkingDays, int maxHourInMonth) {
+    public EmpWageBuilder(String company, int empRatePerHour, int numOfWorkingDays, int maxHourInMonth) {
         int totalWorkHours = 0;
         int totalEmpWage = 0;
         int totalWorkingDays = 0;
@@ -37,7 +32,4 @@ public class EmpWageBuilder {
         System.out.println("Total Employee wage of " + company + " is:" + totalEmpWage);
     }
 
-    public static void main(String[] args) {
-        new EmpWageBuilder();
-    }
 }
