@@ -37,7 +37,6 @@ public class EmpWageBuilder {
         return empHrs;
     }
 
-
     public void computeEmployeeWages() {
         int totalWorkHours = 0;
         int totalEmpWage = 0;
@@ -49,5 +48,4 @@ public class EmpWageBuilder {
         totalEmpWage = totalWorkHours * empRatePerHour;
         System.out.println("Total Employee wage of " + company + " is:" + totalEmpWage);
     }
-
 }

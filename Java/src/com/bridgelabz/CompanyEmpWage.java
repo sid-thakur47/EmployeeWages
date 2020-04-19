@@ -14,7 +14,6 @@ public class CompanyEmpWage {
         this.maxHourInMonth = maxHourInMonth;
     }
 
-
     public String getCompany() {
         return company;
     }
