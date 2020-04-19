@@ -1,5 +1,7 @@
 package com.bridgelabz;
 
+import java.util.ArrayList;
+
 public class EmpWageBuilder {
     public static final int IS_FULL_TIME = 1;
     public static final int IS_PART_TIME = 2;
@@ -9,7 +11,7 @@ public class EmpWageBuilder {
     int numOfWorkingDays;
     int maxHourInMonth;
 
-    public EmpWageBuilder(CompanyEmpWage companyEmpWageArray[]) {
+    public EmpWageBuilder(ArrayList<CompanyEmpWage> companyEmpWageArray) {
         for (CompanyEmpWage companyEmpWage : companyEmpWageArray) {
             company = companyEmpWage.getCompany();
             empRatePerHour = companyEmpWage.getEmpRatePerHour();
@@ -35,6 +37,7 @@ public class EmpWageBuilder {
         return empHrs;
     }
 
+
     public void computeEmployeeWages() {
         int totalWorkHours = 0;
         int totalEmpWage = 0;
@@ -46,4 +49,5 @@ public class EmpWageBuilder {
         totalEmpWage = totalWorkHours * empRatePerHour;
         System.out.println("Total Employee wage of " + company + " is:" + totalEmpWage);
     }
+
 }
