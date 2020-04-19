@@ -4,6 +4,21 @@ public class EmpWageBuilder {
     public static final int IS_FULL_TIME = 1;
     public static final int IS_PART_TIME = 2;
 
+    String company;
+    int empRatePerHour;
+    int numOfWorkingDays;
+    int maxHourInMonth;
+
+    public EmpWageBuilder(CompanyEmpWage companyEmpWageArray[]) {
+        for (CompanyEmpWage companyEmpWage : companyEmpWageArray) {
+            company = companyEmpWage.getCompany();
+            empRatePerHour = companyEmpWage.getEmpRatePerHour();
+            numOfWorkingDays = companyEmpWage.getNumOfWorkingDays();
+            maxHourInMonth = companyEmpWage.getMaxHourInMonth();
+            computeEmployeeWages();
+        }
+    }
+
     private static int getWorkingHours() {
         int empHrs;
         int empCheck = (int) Math.floor(Math.random() * 100) % 3;
@@ -20,12 +35,7 @@ public class EmpWageBuilder {
         return empHrs;
     }
 
-    public EmpWageBuilder() {
-        computeEmployeeWage("Birla", 50, 20, 100);
-        computeEmployeeWage("Tata", 60, 40, 200);
-    }
-
-    public void computeEmployeeWage(String company, int empRatePerHour, int numOfWorkingDays, int maxHourInMonth) {
+    public void computeEmployeeWages() {
         int totalWorkHours = 0;
         int totalEmpWage = 0;
         int totalWorkingDays = 0;
@@ -35,9 +45,5 @@ public class EmpWageBuilder {
         }
         totalEmpWage = totalWorkHours * empRatePerHour;
         System.out.println("Total Employee wage of " + company + " is:" + totalEmpWage);
-    }
-
-    public static void main(String[] args) {
-        new EmpWageBuilder();
     }
 }
