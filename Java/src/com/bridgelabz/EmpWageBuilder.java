@@ -9,6 +9,16 @@ public class EmpWageBuilder {
     int numOfWorkingDays;
     int maxHourInMonth;
 
+    public EmpWageBuilder(CompanyEmpWage companyEmpWageArray[]) {
+        for (CompanyEmpWage companyEmpWage : companyEmpWageArray) {
+            company = companyEmpWage.getCompany();
+            empRatePerHour = companyEmpWage.getEmpRatePerHour();
+            numOfWorkingDays = companyEmpWage.getNumOfWorkingDays();
+            maxHourInMonth = companyEmpWage.getMaxHourInMonth();
+            computeEmployeeWages();
+        }
+    }
+
     private static int getWorkingHours() {
         int empHrs;
         int empCheck = (int) Math.floor(Math.random() * 100) % 3;
@@ -23,13 +33,6 @@ public class EmpWageBuilder {
                 empHrs = 0;
         }
         return empHrs;
-    }
-
-    public EmpWageBuilder(String company, int empRatePerHour, int numOfWorkingDays, int maxHourInMonth) {
-        this.company = company;
-        this.empRatePerHour = empRatePerHour;
-        this.numOfWorkingDays = numOfWorkingDays;
-        this.maxHourInMonth = maxHourInMonth;
     }
 
     public void computeEmployeeWages() {
