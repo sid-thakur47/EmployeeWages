@@ -10,14 +10,18 @@ public class EmpWageBuilder {
     int empRatePerHour;
     int numOfWorkingDays;
     int maxHourInMonth;
+    private ArrayList<CompanyEmpWage> companyEmpWageArray;
+    public EmpWageBuilder(){}
+
 
     public EmpWageBuilder(ArrayList<CompanyEmpWage> companyEmpWageArray) {
+        this.companyEmpWageArray=companyEmpWageArray;
         for (CompanyEmpWage companyEmpWage : companyEmpWageArray) {
             company = companyEmpWage.getCompany();
             empRatePerHour = companyEmpWage.getEmpRatePerHour();
             numOfWorkingDays = companyEmpWage.getNumOfWorkingDays();
             maxHourInMonth = companyEmpWage.getMaxHourInMonth();
-            computeEmployeeWages();
+            computeEmployeeWages(companyEmpWage);
         }
     }
 
@@ -36,16 +40,20 @@ public class EmpWageBuilder {
         }
         return empHrs;
     }
-
-    public void computeEmployeeWages() {
+    public void computeEmployeeWages(CompanyEmpWage companyEmpWage) {
         int totalWorkHours = 0;
         int totalEmpWage = 0;
         int totalWorkingDays = 0;
+        int dailyWage = 0;
         while (totalWorkHours <= maxHourInMonth && totalWorkingDays < numOfWorkingDays) {
             totalWorkingDays++;
             totalWorkHours = totalWorkHours + getWorkingHours();
         }
+        dailyWage = getWorkingHours() + empRatePerHour;
+        companyEmpWage.setTotalWage(dailyWage);
         totalEmpWage = totalWorkHours * empRatePerHour;
+        companyEmpWage.setTotalWage(totalEmpWage);
         System.out.println("Total Employee wage of " + company + " is:" + totalEmpWage);
+        System.out.println("Daily wage of " + company + " is:" + dailyWage);
     }
 }
