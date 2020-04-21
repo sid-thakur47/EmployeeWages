@@ -40,6 +40,15 @@ public class EmpWageBuilder {
         }
         return empHrs;
     }
+    public Integer getTotalWageByCompany(String companyName) {
+        for (CompanyEmpWage companyEmpWage : companyEmpWageArray) {
+            if(companyName.equalsIgnoreCase(companyEmpWage.getCompany())){
+                return companyEmpWage.getTotalWage();
+            }
+        }
+        return null;
+    }
+
     public void computeEmployeeWages(CompanyEmpWage companyEmpWage) {
         int totalWorkHours = 0;
         int totalEmpWage = 0;

@@ -1,12 +1,11 @@
 package com.bridgelabz;
 
 public class CompanyEmpWage {
-    public  String company;
-    public  int empRatePerHour;
-    public  int numOfWorkingDays;
+    public String company;
+    public int empRatePerHour;
+    public int numOfWorkingDays;
     public int maxHourInMonth;
     public int totalWage;
-
 
     public CompanyEmpWage(String company, int empRatePerHour, int numOfWorkingDays, int maxHourInMonth) {
         this.company = company;
@@ -33,6 +32,7 @@ public class CompanyEmpWage {
     public int getTotalWage() {
         return totalWage;
     }
+
     public void setTotalWage(int totalWage) {
         this.totalWage = totalWage;
     }
